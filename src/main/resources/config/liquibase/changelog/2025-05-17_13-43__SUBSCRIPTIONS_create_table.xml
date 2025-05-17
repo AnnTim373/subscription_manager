@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="2" author="timofeeva">
+        <createSequence schemaName="sub_man" sequenceName="seq_subscriptions"/>
+        <createTable schemaName="sub_man" tableName="subscriptions">
+            <column name="id" type="bigint" remarks="Индификатор"
+                    defaultValueComputed="nextval('sub_man.seq_subscriptions')">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar" remarks="Название стримингого сервиса"/>
+            <column name="description" type="varchar" remarks="Описание стримингого сервиса"/>
+        </createTable>
+
+        <addNotNullConstraint schemaName="sub_man" tableName="subscriptions" columnName="name"/>
+        <addUniqueConstraint schemaName="sub_man" tableName="subscriptions" columnNames="name"/>
+
+        <sql>
+            insert into sub_man.subscriptions
+            values (nextval('sub_man.seq_subscriptions'), 'YouTube Premium', 'YouTube Premium')
+                on conflict (name) do nothing;
+
+            insert into sub_man.subscriptions
+            values (nextval('sub_man.seq_subscriptions'), 'VK Музыка', 'VK Музыка')
+                on conflict (name) do nothing;
+
+            insert into sub_man.subscriptions
+            values (nextval('sub_man.seq_subscriptions'), 'Яндекс.Плюс', 'Яндекс.Плюс')
+                on conflict (name) do nothing;
+
+            insert into sub_man.subscriptions
+            values (nextval('sub_man.seq_subscriptions'), 'Netflix', 'Netflix')
+                on conflict (name) do nothing;
+        </sql>
+
+    </changeSet>
+
+</databaseChangeLog>

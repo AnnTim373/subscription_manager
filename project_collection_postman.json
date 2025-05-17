@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "7579ebb9-8d02-49c4-8787-331b319fc719",
+		"name": "test_manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10637736"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Создание юзера",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"test\",\r\n    \"fullName\": \"test\",\r\n    \"birthDate\": \"1990-01-01\",\r\n    \"phone\": \"79999999999\",\r\n    \"email\": \"mail@mail.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8010/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление юзера",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"test\",\r\n    \"fullName\": \"test\",\r\n    \"birthDate\": \"1990-01-01\",\r\n    \"phone\": \"79999999999\",\r\n    \"email\": \"mail@mail.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8010/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение юзера",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление юзера",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "subscriptions",
+			"item": [
+				{
+					"name": "Создание подписки",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"MyStreaming\",\r\n    \"description\": \"MyStreaming\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8010/subscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление подписки",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"MyStreaming\",\r\n    \"description\": \"MyStreaming\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8010/subscriptions/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"subscriptions",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение подписки",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/subscriptions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"subscriptions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление подписки",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/subscriptions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"subscriptions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Топ подписок",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/subscriptions/top",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"subscriptions",
+								"top"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usersSubscriptions",
+			"item": [
+				{
+					"name": "Подписаться",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/users/3/subscriptions/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"users",
+								"3",
+								"subscriptions",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Отписка",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/users/2/subscriptions/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"users",
+								"2",
+								"subscriptions",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить подписки юзера",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/users/2/subscriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"users",
+								"2",
+								"subscriptions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,29 @@
+services:
+  subman:
+    image: subman:latest
+    restart:
+      always
+    ports:
+      - "8010:8010"
+    networks:
+      - subman
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_DB: sub_man
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    networks:
+      - subman
+
+networks:
+  subman:
+    driver: bridge

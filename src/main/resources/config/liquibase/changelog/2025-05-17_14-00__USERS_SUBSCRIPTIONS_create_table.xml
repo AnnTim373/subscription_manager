@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="3" author="timofeeva">
+        <createTable schemaName="sub_man" tableName="users_subscriptions">
+            <column name="user_id" type="bigint"/>
+            <column name="subscription_id" type="bigint"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableSchemaName="sub_man"
+                                 baseTableName="users_subscriptions"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_us_user"
+                                 referencedTableSchemaName="sub_man"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableSchemaName="sub_man"
+                                 baseTableName="users_subscriptions"
+                                 baseColumnNames="subscription_id"
+                                 constraintName="fk_us_subscription"
+                                 referencedTableSchemaName="sub_man"
+                                 referencedTableName="subscriptions"
+                                 referencedColumnNames="id"/>
+
+        <addPrimaryKey schemaName="sub_man" tableName="users_subscriptions" columnNames="user_id, subscription_id"/>
+    </changeSet>
+
+</databaseChangeLog>

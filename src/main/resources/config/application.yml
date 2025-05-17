@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: SubMan
+  liquibase:
+    enabled: true
+    default-schema: "sub_man"
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://postgres:5432/sub_man
+  jpa:
+    properties.hibernate.generate_statistics: false
+    hibernate:
+      ddl-auto: none
+
+logging:
+  level:
+      ROOT: INFO
+
+server:
+  port: 8010
